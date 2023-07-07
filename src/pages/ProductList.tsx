@@ -12,6 +12,7 @@ export default function ProductList({ productLists }: PropType) {
         return (
           <>
             <Box
+              key = {product.id}
               sx={{
                 borderRadius: '10px',
                 boxShadow: 5,

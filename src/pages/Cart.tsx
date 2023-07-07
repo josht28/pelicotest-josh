@@ -9,6 +9,7 @@ export default function ProductList() {
         return (
           <>
             <Box
+              key ={product.id}
               sx={{
                 borderRadius: '10px',
                 boxShadow: 5,
