@@ -25,12 +25,12 @@ export default function CartContextProvider({
       (items) => items.id === product.id
     )!== undefined;
 
-    if (products.find((items) => items.id === product.id)!==undefined) {
+    if (haveProduct) {
       setProducts((prevState) => {
         return prevState.map((item) => {
           if (item.id === product.id) {
-            const quantity = item.quantity + 1;
-            return { ...item, quantity: quantity };
+            const newQuantity = item.quantity + 1;
+            return { ...item, quantity: newQuantity };
           }
           return item;
         });
@@ -41,12 +41,11 @@ export default function CartContextProvider({
       });
     }
   };
-  const removeProduct = (id: number) => {
+  const removeProduct = (id: Product['id']) => {
 
     const updatedProducts = products.reduce<cartProduct[]>((prevValue,product) => {
 
       if (product.id === id && product.quantity > 1) {
-
           const newQuantity = product.quantity - 1;
           return [...prevValue, { ...product, quantity: newQuantity }];
       }
