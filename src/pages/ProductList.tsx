@@ -10,7 +10,6 @@ export default function ProductList({ productLists }: PropType) {
     <>
       {productLists.map((product) => {
         return (
-          <>
             <Box
               key = {product.id}
               sx={{
@@ -35,7 +34,6 @@ export default function ProductList({ productLists }: PropType) {
                 <Link to={`/product/${product.id}`}> details</Link>
               </Box>
             </Box>
-          </>
         );
       })}
     </>
